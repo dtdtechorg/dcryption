@@ -1,7 +1,7 @@
 {
     "name": "dtdtechorg/dcryption",
     "description": "DCryption: A custom encryption library with a unique alphabet-based encryption scheme.",
-    "version": "1.0.0",
+    "version": "4.0.0",
     "type": "library",
     "license": "MIT",
     "authors": [
