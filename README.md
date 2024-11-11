@@ -41,7 +41,7 @@ use DCryption\Cryption;
 $cipher = new Cryption();
 
 // Shifrlash
-$plaintext = "Hello, world!";
+$plaintext = "Salom, dunyo!";
 $encrypted = $cipher->encrypt($plaintext);
 echo "Shifrlangan matn: " . $encrypted . "
 ";
@@ -67,7 +67,7 @@ use DCryption\Cryption;
 $cipher = new Cryption();
 
 // Shifrlash
-$plaintext = "Hello, world!";
+$plaintext = "Salom, dunyo!";
 $encrypted = $cipher->encrypt($plaintext);
 echo "Shifrlangan matn: " . $encrypted . "
 ";
