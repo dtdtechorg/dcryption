@@ -1,7 +1,7 @@
 <?php
 namespace DCryption;
 
-class CipherLibrary
+class Cryption
 {
     private $alphabet = [
         'A' => 'gjtw', 'B' => 'iola', 'C' => 'qz5e', 'D' => 't0e2', 'E' => '2p9o',
@@ -22,7 +22,7 @@ class CipherLibrary
         '-' => 'D6sq', '_' => 'Fi9w', '+' => 'M2cO', '=' => 'Tz7a', ':' => 'W5dH',
         ';' => 'Po3m', '\'' => 'iH0v', '"' => 'qT2y', '`' => 'r7Gw', '~' => 'lQ4p',
         '/' => 'yV9o', '\\' => 'x3Sq', '|' => 'vH7d', '<' => 'f9Pe', '>' => 'kL2o',
-        '[' => 'bW6q', ']' => 'o7Vp', '{' => 'nC4w', '}' => 's9Fa'
+        '[' => 'bW6q', ']' => 'o7Vp', '{' => 'nC4w', '}' => 's9Fa', ' ' => 'vt6Q',
     ];
 
     public function encrypt($plaintext)
@@ -33,12 +33,10 @@ class CipherLibrary
         for ($i = 0; $i < $length; $i++) {
             $char = $plaintext[$i];
     
-            // Emoji yoki qo'llab-quvvatlanmagan belgilarni tekshirish
             if (mb_check_encoding($char, 'UTF-8') && preg_match('/[\x{1F600}-\x{1F64F}\x{1F300}-\x{1F5FF}\x{1F680}-\x{1F6FF}\x{1F700}-\x{1F77F}\x{1F780}-\x{1F7FF}\x{1F800}-\x{1F8FF}\x{1F900}-\x{1F9FF}\x{1FA00}-\x{1FA6F}\x{1FA70}-\x{1FAFF}\x{2600}-\x{26FF}\x{2700}-\x{27BF}\x{2300}-\x{23FF}\x{2B50}\x{203C}\x{2049}\x{00A9}\x{00AE}]/u', $char)) {
                 throw new \Exception('Emoji or unsupported character detected: ' . $char);
             }
     
-            // Belgini alifbo bo'yicha shifrlash
             $encrypted .= $this->alphabet[$char] ?? $char;
         }
     
@@ -54,7 +52,6 @@ class CipherLibrary
         for ($i = 0; $i < $length; $i += 4) {
             $segment = substr($encryptedText, $i, 4);
     
-            // Agar segment alifboda mavjud bo'lmasa, xatolik qaytarish
             $decryptedChar = array_search($segment, $this->alphabet);
             if (!$decryptedChar) {
                 throw new \Exception('Invalid encrypted segment detected: ' . $segment);
