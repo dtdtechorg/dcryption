@@ -1,0 +1,24 @@
+{
+    "name": "dtdtechorg/dcryption",
+    "description": "DCryption: A custom encryption library with a unique alphabet-based encryption scheme.",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Janob DTD",
+            "email": "janobdtd@gmail.com",
+            "homepage": "https://dtdtech.org/",
+            "role": "Developer & DTD Tech Director"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "DCryption\\": "src/"
+        }
+    },
+    "homepage": "https://github.com/dtdtechorg"
+}
